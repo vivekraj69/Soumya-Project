@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>MarketIQ - Campaigns</title>
+
+
+    <!-- Google Font -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- Existing MarketIQ stylesheet -->
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+    <aside class="sidebar">
+
+
+        <!-- BRAND -->
+
+        <div class="brand">
+
+            <div class="brand-icon">
+                M
+            </div>
+
+            <div>
+
+                <h2>
+                    MarketIQ
+                </h2>
+
+                <span>
+                    Campaign Analytics
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- NAVIGATION -->
+
+        <nav class="navigation">
+
+
+            <a
+                href="index.html"
+                class="nav-item"
+            >
+
+                <span class="nav-icon">
+                    ▦
+                </span>
+
+                <span>
+                    Dashboard
+                </span>
+
+            </a>
+
+
+            <a
+                href="campaigns.html"
+                class="nav-item active"
+            >
+
+                <span class="nav-icon">
+                    ▤
+                </span>
+
+                <span>
+                    Campaigns
+                </span>
+
+            </a>
+
+
+            <a
+                href="analytics.html"
+                class="nav-item"
+            >
+
+                <span class="nav-icon">
+                    ◩
+                </span>
+
+                <span>
+                    Business Insights
+                </span>
+
+            </a>
+
+
+        </nav>
+
+
+        <!-- SIDEBAR FOOTER -->
+
+        <div class="sidebar-footer">
+
+            <span class="status-dot"></span>
+
+            <span>
+                Analytics Engine Online
+            </span>
+
+        </div>
+
+
+    </aside>
+
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+    ====================================================== -->
+
+    <main class="main-content">
+
+
+        <!-- TOPBAR -->
+
+        <header class="topbar">
+
+
+            <div>
+
+                <div class="eyebrow">
+                    CAMPAIGN PERFORMANCE
+                </div>
+
+                <h1>
+                    Campaigns
+                </h1>
+
+                <p class="page-description">
+                    Search, filter and compare individual marketing campaigns.
+                </p>
+
+            </div>
+
+
+            <div class="topbar-right">
+
+
+                <div class="live-status">
+
+                    <span class="live-dot"></span>
+
+                    Live
+
+                </div>
+
+
+                <div class="date-display">
+                    10,000 Campaign Records
+                </div>
+
+
+            </div>
+
+
+        </header>
+
+
+
+        <!-- =================================================
+             FILTER PANEL
+        ================================================== -->
+
+        <section class="filter-panel">
+
+
+            <div class="filter-heading">
+
+
+                <div>
+
+                    <h3>
+                        Campaign Search & Filters
+                    </h3>
+
+                    <p>
+                        Search and filter campaigns by performance dimensions.
+                    </p>
+
+                </div>
+
+
+                <button
+                    id="reset-campaign-filters"
+                    class="reset-button"
+                    type="button"
+                >
+                    Reset
+                </button>
+
+
+            </div>
+
+
+
+            <div class="filter-grid campaign-filter-grid">
+
+
+                <!-- SEARCH -->
+
+                <div class="filter-group">
+
+                    <label for="campaign-search">
+                        Search
+                    </label>
+
+                    <input
+                        type="text"
+                        id="campaign-search"
+                        class="campaign-search"
+                        placeholder="Campaign ID, platform..."
+                        autocomplete="off"
+                    >
+
+                </div>
+
+
+
+                <!-- PLATFORM -->
+
+                <div class="filter-group">
+
+                    <label for="campaign-platform">
+                        Platform
+                    </label>
+
+                    <select id="campaign-platform">
+
+                        <option value="">
+                            All Platforms
+                        </option>
+
+                        <option value="Facebook">
+                            Facebook
+                        </option>
+
+                        <option value="Google Ads">
+                            Google Ads
+                        </option>
+
+                        <option value="Instagram">
+                            Instagram
+                        </option>
+
+                        <option value="LinkedIn">
+                            LinkedIn
+                        </option>
+
+                        <option value="YouTube">
+                            YouTube
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <!-- OBJECTIVE -->
+
+                <div class="filter-group">
+
+                    <label for="campaign-objective">
+                        Objective
+                    </label>
+
+                    <select id="campaign-objective">
+
+                        <option value="">
+                            All Objectives
+                        </option>
+
+                        <option value="Lead Generation">
+                            Lead Generation
+                        </option>
+
+                        <option value="Conversions">
+                            Conversions
+                        </option>
+
+                        <option value="Brand Awareness">
+                            Brand Awareness
+                        </option>
+
+                        <option value="Engagement">
+                            Engagement
+                        </option>
+
+                        <option value="App Installs">
+                            App Installs
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <!-- INDUSTRY -->
+
+                <div class="filter-group">
+
+                    <label for="campaign-industry">
+                        Industry
+                    </label>
+
+                    <select id="campaign-industry">
+
+                        <option value="">
+                            All Industries
+                        </option>
+
+                        <option value="E-commerce">
+                            E-commerce
+                        </option>
+
+                        <option value="Education">
+                            Education
+                        </option>
+
+                        <option value="Finance">
+                            Finance
+                        </option>
+
+                        <option value="Gaming">
+                            Gaming
+                        </option>
+
+                        <option value="Healthcare">
+                            Healthcare
+                        </option>
+
+                        <option value="SaaS">
+                            SaaS
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <!-- BUDGET -->
+
+                <div class="filter-group">
+
+                    <label for="campaign-budget">
+                        Budget Tier
+                    </label>
+
+                    <select id="campaign-budget">
+
+                        <option value="">
+                            All Budget Tiers
+                        </option>
+
+                        <option value="Low">
+                            Low
+                        </option>
+
+                        <option value="Medium">
+                            Medium
+                        </option>
+
+                        <option value="High">
+                            High
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             CAMPAIGN DIRECTORY
+        ================================================== -->
+
+        <section class="chart-card campaign-table-card">
+
+
+            <div class="chart-header">
+
+
+                <div>
+
+                    <h3>
+                        Campaign Directory
+                    </h3>
+
+                    <p id="campaign-count">
+                        Loading campaigns...
+                    </p>
+
+                </div>
+
+
+                <div
+                    class="campaign-page-info"
+                    id="page-info"
+                >
+                    Page 1
+                </div>
+
+
+            </div>
+
+
+
+            <!-- TABLE -->
+
+            <div class="table-wrapper">
+
+                <table class="campaign-table">
+
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Campaign
+                            </th>
+
+                            <th>
+                                Objective
+                            </th>
+
+                            <th>
+                                Platform
+                            </th>
+
+                            <th>
+                                Industry
+                            </th>
+
+                            <th>
+                                Budget
+                            </th>
+
+                            <th>
+                                Spend
+                            </th>
+
+                            <th>
+                                Revenue
+                            </th>
+
+                            <th>
+                                Profit
+                            </th>
+
+                            <th>
+                                ROAS
+                            </th>
+
+                            <th>
+                                CPA
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="campaign-table-body">
+
+                        <tr>
+
+                            <td
+                                colspan="10"
+                                class="loading-cell"
+                            >
+                                Loading campaigns...
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+
+                </table>
+
+            </div>
+
+
+
+            <!-- PAGINATION -->
+
+            <div class="pagination">
+
+
+                <button
+                    id="previous-page"
+                    class="reset-button"
+                    type="button"
+                >
+                    ← Previous
+                </button>
+
+
+                <span id="pagination-text">
+                    Page 1
+                </span>
+
+
+                <button
+                    id="next-page"
+                    class="reset-button"
+                    type="button"
+                >
+                    Next →
+                </button>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- FOOTER -->
+
+        <footer class="footer">
+
+            <span>
+                MarketIQ Marketing Analytics
+            </span>
+
+            <span>
+                Campaign Performance Module
+            </span>
+
+        </footer>
+
+
+    </main>
+
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="js/campaigns.js"></script>
+
+
+</body>
+
+</html>

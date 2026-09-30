@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MarketIQ | Business Insights</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;750&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        /* Only styles the new Performance Summary.
+           The filter section continues using the existing
+           Campaigns-page classes from style.css. */
+
+        .overall-summary-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 26px 28px;
+            margin-bottom: 26px;
+            box-shadow: var(--shadow);
+        }
+
+        .overall-summary-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 18px;
+        }
+
+        .overall-summary-header h2 {
+            margin: 0;
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .overall-summary-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #eef2ff;
+            color: var(--accent);
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .overall-summary-text {
+            margin: 0;
+            padding: 0;
+        }
+
+        .summary-point {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 13px;
+            color: var(--text-secondary);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .summary-point:last-child {
+            margin-bottom: 0;
+        }
+
+        .summary-point::before {
+            content: "•";
+            color: var(--accent);
+            font-size: 20px;
+            line-height: 1.2;
+            flex-shrink: 0;
+        }
+
+        .summary-point strong {
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+
+        .overall-summary-metrics {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 14px;
+            margin-top: 24px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+        }
+
+        .overall-metric {
+            background: #f8fafc;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 14px 16px;
+        }
+
+        .overall-metric span {
+            display: block;
+            margin-bottom: 6px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-light);
+        }
+
+        .overall-metric strong {
+            display: block;
+            font-size: 19px;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        @media (max-width: 800px) {
+            .overall-summary-metrics {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 500px) {
+            .overall-summary-card {
+                padding: 20px;
+            }
+
+            .overall-summary-metrics {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <aside class="sidebar">
+
+        <div class="brand">
+
+            <div class="brand-icon">M</div>
+
+            <div class="brand-text">
+                <div class="brand-name">MarketIQ</div>
+                <div class="brand-subtitle">Campaign Analytics</div>
+            </div>
+
+        </div>
+
+        <nav class="navigation">
+
+            <a href="index.html" class="nav-item">
+                <span class="nav-icon">▦</span>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="campaigns.html" class="nav-item">
+                <span class="nav-icon">▤</span>
+                <span>Campaigns</span>
+            </a>
+
+            <a href="analytics.html" class="nav-item active">
+                <span class="nav-icon">◩</span>
+                <span>Business Insights</span>
+            </a>
+
+        </nav>
+
+        <div class="sidebar-footer">
+            <span class="status-dot"></span>
+            <span>Analytics Engine Online</span>
+        </div>
+
+    </aside>
+
+
+    <main class="main-content">
+
+        <header class="topbar">
+
+            <div>
+
+                <div class="eyebrow">
+                    BUSINESS INTELLIGENCE
+                </div>
+
+                <h1>
+                    Business Insights
+                </h1>
+
+                <p class="page-description">
+                    Analyze campaign profitability, business performance and revenue efficiency.
+                </p>
+
+            </div>
+
+            <div class="topbar-right">
+
+                <div class="live-status">
+                    <span class="live-dot"></span>
+                    Live Analytics
+                </div>
+
+                <div class="date-display">
+                    10,000 Campaign Records
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- =================================================
+             PERFORMANCE FILTERS
+             Uses the existing Campaigns-page filter styling.
+             ================================================= -->
+
+        <section class="campaign-filter-panel">
+
+            <div class="campaign-toolbar">
+
+                <div>
+
+                    <h3>
+                        Performance Filters
+                    </h3>
+
+                    <p>
+                        Explore Campaign Performance.
+                    </p>
+
+                </div>
+
+                <button
+                    type="button"
+                    id="reset-insight-filters"
+                    class="reset-button"
+                >
+                    Reset
+                </button>
+
+            </div>
+
+
+            <div class="campaign-filter-grid">
+
+                <div class="campaign-filter-group">
+
+                    <label for="objective-filter">
+                        Campaign Objective
+                    </label>
+
+                    <select id="objective-filter">
+
+                        <option value="">All Objectives</option>
+
+                        <option value="Brand Awareness">
+                            Brand Awareness
+                        </option>
+
+                        <option value="Conversions">
+                            Conversions
+                        </option>
+
+                        <option value="Engagement">
+                            Engagement
+                        </option>
+
+                        <option value="Lead Generation">
+                            Lead Generation
+                        </option>
+
+                        <option value="App Installs">
+                            App Installs
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="campaign-filter-group">
+
+                    <label for="platform-filter">
+                        Platform
+                    </label>
+
+                    <select id="platform-filter">
+
+                        <option value="">All Platforms</option>
+
+                        <option value="Google Ads">
+                            Google Ads
+                        </option>
+
+                        <option value="Facebook">
+                            Facebook
+                        </option>
+
+                        <option value="Instagram">
+                            Instagram
+                        </option>
+
+                        <option value="LinkedIn">
+                            LinkedIn
+                        </option>
+
+                        <option value="Twitter">
+                            Twitter
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="campaign-filter-group">
+
+                    <label for="industry-filter">
+                        Industry
+                    </label>
+
+                    <select id="industry-filter">
+
+                        <option value="">All Industries</option>
+
+                        <option value="E-commerce">
+                            E-commerce
+                        </option>
+
+                        <option value="Education">
+                            Education
+                        </option>
+
+                        <option value="Finance">
+                            Finance
+                        </option>
+
+                        <option value="Gaming">
+                            Gaming
+                        </option>
+
+                        <option value="Healthcare">
+                            Healthcare
+                        </option>
+
+                        <option value="SaaS">
+                            SaaS
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="campaign-filter-group">
+
+                    <label for="budget-filter">
+                        Budget Tier
+                    </label>
+
+                    <select id="budget-filter">
+
+                        <option value="">All Budget Tiers</option>
+
+                        <option value="Low">Low</option>
+                        <option value="Medium">Medium</option>
+                        <option value="High">High</option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             PERFORMANCE SUMMARY
+             ================================================= -->
+
+        <section class="overall-summary-card">
+
+            <div class="overall-summary-header">
+
+                <h2>
+                    Performance Summary
+                </h2>
+
+                <div class="overall-summary-icon">
+                    ✦
+                </div>
+
+            </div>
+
+
+            <div
+                id="overall-summary-text"
+                class="overall-summary-text"
+            >
+                Loading performance summary...
+            </div>
+
+
+            <div class="overall-summary-metrics">
+
+                <div class="overall-metric">
+                    <span>CTR</span>
+                    <strong id="summary-ctr">--</strong>
+                </div>
+
+                <div class="overall-metric">
+                    <span>Conversion Rate</span>
+                    <strong id="summary-conversion-rate">--</strong>
+                </div>
+
+                <div class="overall-metric">
+                    <span>ROAS</span>
+                    <strong id="summary-roas">--</strong>
+                </div>
+
+                <div class="overall-metric">
+                    <span>CPA</span>
+                    <strong id="summary-cpa">--</strong>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             SUMMARY CARDS
+             ================================================= -->
+
+        <section class="summary-grid">
+
+            <div class="summary-card">
+
+                <div class="summary-icon">✓</div>
+
+                <div>
+
+                    <h4>Profitable Campaigns</h4>
+
+                    <p id="profitable-count">--</p>
+
+                </div>
+
+            </div>
+
+
+            <div class="summary-card">
+
+                <div class="summary-icon">₹</div>
+
+                <div>
+
+                    <h4>Total Profit</h4>
+
+                    <p id="total-profit">--</p>
+
+                </div>
+
+            </div>
+
+
+            <div class="summary-card">
+
+                <div class="summary-icon">!</div>
+
+                <div>
+
+                    <h4>Loss-Making Campaigns</h4>
+
+                    <p id="loss-count">--</p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             INSIGHT CHARTS
+             ================================================= -->
+
+        <section class="insights-grid">
+
+            <div class="insight-card">
+
+                <div class="insight-header">
+
+                    <h3>Profit vs Loss</h3>
+
+                    <p>
+                        Campaign distribution by profitability status.
+                    </p>
+
+                </div>
+
+                <div class="insight-chart-container">
+                    <canvas id="profitLossChart"></canvas>
+                </div>
+
+            </div>
+
+
+            <div class="insight-card">
+
+                <div class="insight-header">
+
+                    <h3>Profit by Campaign Objective</h3>
+
+                    <p>
+                        Total profit generated across campaign objectives.
+                    </p>
+
+                </div>
+
+                <div class="insight-chart-container">
+                    <canvas id="objectiveProfitChart"></canvas>
+                </div>
+
+            </div>
+
+
+            <div class="insight-card">
+
+                <div class="insight-header">
+
+                    <h3>Profit by Platform</h3>
+
+                    <p>
+                        Compare profit generated across advertising platforms.
+                    </p>
+
+                </div>
+
+                <div class="insight-chart-container">
+                    <canvas id="platformProfitChart"></canvas>
+                </div>
+
+            </div>
+
+
+            <div class="insight-card">
+
+                <div class="insight-header">
+
+                    <h3>Ad Spend vs Revenue</h3>
+
+                    <p>
+                        Relationship between campaign spending and generated revenue.
+                    </p>
+
+                </div>
+
+                <div class="insight-chart-container">
+                    <canvas id="revenueProfitChart"></canvas>
+                </div>
+
+            </div>
+
+
+            <div class="insight-card">
+
+                <div class="insight-header">
+
+                    <h3>Top Profitable Campaigns</h3>
+
+                    <p>
+                        Campaigns with the highest recorded profit.
+                    </p>
+
+                </div>
+
+                <div
+                    class="insight-list"
+                    id="top-profitable-list"
+                >
+                    <div class="loading-state">
+                        Loading campaign insights...
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="insight-card">
+
+                <div class="insight-header">
+
+                    <h3>Top Loss-Making Campaigns</h3>
+
+                    <p>
+                        Campaigns with the largest recorded losses.
+                    </p>
+
+                </div>
+
+                <div
+                    class="insight-list"
+                    id="top-loss-list"
+                >
+                    <div class="loading-state">
+                        Loading campaign insights...
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <footer class="footer">
+
+            <div class="footer-left">
+
+                <span class="status-dot"></span>
+
+                <span>
+                    MarketIQ Analytics System
+                </span>
+
+            </div>
+
+            <div class="footer-right">
+                Business Insights • Flask + SQLite + Chart.js
+            </div>
+
+        </footer>
+
+    </main>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/analytics.js"></script>
+
+</body>
+
+</html>

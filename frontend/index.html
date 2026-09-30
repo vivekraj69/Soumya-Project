@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Marketing Analytics Dashboard</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- ==========================================
+         SIDEBAR
+    =========================================== -->
+
+    <aside class="sidebar">
+
+        <div class="brand">
+            <div class="brand-icon">M</div>
+
+            <div>
+                <h2>MarketIQ</h2>
+                <span>Campaign Analytics</span>
+            </div>
+        </div>
+
+        <nav class="navigation">
+
+            <a href="index.html" class="nav-item active">
+                <span class="nav-icon">▦</span>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="campaigns.html" class="nav-item">
+                <span class="nav-icon">▤</span>
+                <span>Campaigns</span>
+            </a>
+
+            <a href="analytics.html" class="nav-item">
+                <span class="nav-icon">◩</span>
+                <span>Business Insights</span>
+            </a>
+
+        </nav>
+
+        <div class="sidebar-footer">
+            <div class="status-dot"></div>
+            <span>Analytics Engine Online</span>
+        </div>
+
+    </aside>
+
+
+    <!-- ==========================================
+         MAIN CONTENT
+    =========================================== -->
+
+    <main class="main-content">
+
+        <!-- TOP BAR -->
+
+        <header class="topbar">
+
+            <div>
+                <p class="eyebrow">MARKETING PERFORMANCE</p>
+
+                <h1>Campaign Overview</h1>
+
+                <p class="page-description">
+                    Monitor campaign performance, revenue and marketing efficiency.
+                </p>
+            </div>
+
+            <div class="topbar-right">
+
+                <div class="live-status">
+                    <span class="live-dot"></span>
+                    Live Data
+                </div>
+
+                <div class="date-display">
+                    10,000 Campaign Records
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- ==========================================
+             KPI CARDS
+        =========================================== -->
+
+        <section class="kpi-grid">
+
+            <div class="kpi-card">
+
+                <div class="kpi-top">
+                    <span>Total Spend</span>
+                    <div class="kpi-icon">₹</div>
+                </div>
+
+                <h2 id="total-spend">--</h2>
+
+                <p class="kpi-label">
+                    Advertising investment
+                </p>
+
+            </div>
+
+
+            <div class="kpi-card">
+
+                <div class="kpi-top">
+                    <span>Total Revenue</span>
+                    <div class="kpi-icon">↗</div>
+                </div>
+
+                <h2 id="total-revenue">--</h2>
+
+                <p class="kpi-label">
+                    Revenue generated
+                </p>
+
+            </div>
+
+
+            <div class="kpi-card">
+
+                <div class="kpi-top">
+                    <span>Total Profit</span>
+                    <div class="kpi-icon">◆</div>
+                </div>
+
+                <h2 id="total-profit">--</h2>
+
+                <p class="kpi-label">
+                    Net campaign profit
+                </p>
+
+            </div>
+
+
+            <div class="kpi-card">
+
+                <div class="kpi-top">
+                    <span>Conversions</span>
+                    <div class="kpi-icon">✓</div>
+                </div>
+
+                <h2 id="total-conversions">--</h2>
+
+                <p class="kpi-label">
+                    Successful conversions
+                </p>
+
+            </div>
+
+
+            <div class="kpi-card">
+
+                <div class="kpi-top">
+                    <span>CTR</span>
+                    <div class="kpi-icon">%</div>
+                </div>
+
+                <h2 id="ctr">--</h2>
+
+                <p class="kpi-label">
+                    Click-through rate
+                </p>
+
+            </div>
+
+
+            <div class="kpi-card">
+
+                <div class="kpi-top">
+                    <span>ROAS</span>
+                    <div class="kpi-icon">★</div>
+                </div>
+
+                <h2 id="roas">--</h2>
+
+                <p class="kpi-label">
+                    Return on ad spend
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==========================================
+             FILTER BAR
+        =========================================== -->
+
+        <section class="filter-panel">
+
+            <div class="filter-heading">
+
+                <div>
+                    <h3>Performance Filters</h3>
+                    <p>Filter the dashboard by campaign dimensions.</p>
+                </div>
+
+                <button id="reset-filters" class="reset-button">
+                    Reset Filters
+                </button>
+
+            </div>
+
+
+            <div class="filter-grid">
+
+                <div class="filter-group">
+
+                    <label for="objective-filter">
+                        Campaign Objective
+                    </label>
+
+                    <select id="objective-filter">
+
+                        <option value="">
+                            All Objectives
+                        </option>
+
+                        <option value="Lead Generation">
+                            Lead Generation
+                        </option>
+
+                        <option value="Conversions">
+                            Conversions
+                        </option>
+
+                        <option value="Brand Awareness">
+                            Brand Awareness
+                        </option>
+
+                        <option value="App Installs">
+                            App Installs
+                        </option>
+
+                        <option value="Engagement">
+                            Engagement
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="filter-group">
+
+                    <label for="platform-filter">
+                        Platform
+                    </label>
+
+                    <select id="platform-filter">
+
+                        <option value="">
+                            All Platforms
+                        </option>
+
+                        <option value="Google Ads">
+                            Google Ads
+                        </option>
+
+                        <option value="Facebook">
+                            Facebook
+                        </option>
+
+                        <option value="TikTok">
+                            TikTok
+                        </option>
+
+                        <option value="Instagram">
+                            Instagram
+                        </option>
+
+                        <option value="LinkedIn">
+                            LinkedIn
+                        </option>
+
+                        <option value="Twitter">
+                            Twitter
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="filter-group">
+
+                    <label for="industry-filter">
+                        Industry
+                    </label>
+
+                    <select id="industry-filter">
+
+                        <option value="">
+                            All Industries
+                        </option>
+
+                        <option value="Finance">
+                            Finance
+                        </option>
+
+                        <option value="Healthcare">
+                            Healthcare
+                        </option>
+
+                        <option value="SaaS">
+                            SaaS
+                        </option>
+
+                        <option value="E-commerce">
+                            E-commerce
+                        </option>
+
+                        <option value="Education">
+                            Education
+                        </option>
+
+                        <option value="Gaming">
+                            Gaming
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="filter-group">
+
+                    <label for="budget-filter">
+                        Budget Tier
+                    </label>
+
+                    <select id="budget-filter">
+
+                        <option value="">
+                            All Budgets
+                        </option>
+
+                        <option value="Low">
+                            Low
+                        </option>
+
+                        <option value="Medium">
+                            Medium
+                        </option>
+
+                        <option value="High">
+                            High
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==========================================
+             CHART ROW 1
+        =========================================== -->
+
+        <section class="chart-grid">
+
+            <div class="chart-card large">
+
+                <div class="chart-header">
+
+                    <div>
+                        <h3>Revenue by Campaign Objective</h3>
+
+                        <p>
+                            Revenue generated across different campaign goals.
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="chart-container">
+                    <canvas id="objectiveRevenueChart"></canvas>
+                </div>
+
+            </div>
+
+
+            <div class="chart-card">
+
+                <div class="chart-header">
+
+                    <div>
+                        <h3>Profit by Platform</h3>
+
+                        <p>
+                            Profit contribution by advertising platform.
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="chart-container">
+                    <canvas id="platformProfitChart"></canvas>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==========================================
+             CHART ROW 2
+        =========================================== -->
+
+        <section class="chart-grid">
+
+            <div class="chart-card">
+
+                <div class="chart-header">
+
+                    <div>
+                        <h3>Industry Performance</h3>
+
+                        <p>
+                            ROAS comparison across industries.
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="chart-container">
+                    <canvas id="industryRoasChart"></canvas>
+                </div>
+
+            </div>
+
+
+            <div class="chart-card">
+
+                <div class="chart-header">
+
+                    <div>
+                        <h3>Budget Tier Performance</h3>
+
+                        <p>
+                            Revenue and profit by budget level.
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="chart-container">
+                    <canvas id="budgetPerformanceChart"></canvas>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==========================================
+             BOTTOM SUMMARY
+        =========================================== -->
+
+        <section class="summary-grid">
+
+            <div class="summary-card">
+
+                <div class="summary-icon">◈</div>
+
+                <div>
+
+                    <span>Conversion Rate</span>
+
+                    <strong id="conversion-rate">
+                        --
+                    </strong>
+
+                    <p>
+                        Percentage of clicks that converted
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="summary-card">
+
+                <div class="summary-icon">₹</div>
+
+                <div>
+
+                    <span>Cost Per Acquisition</span>
+
+                    <strong id="cpa">
+                        --
+                    </strong>
+
+                    <p>
+                        Average cost per conversion
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="summary-card">
+
+                <div class="summary-icon">◎</div>
+
+                <div>
+
+                    <span>Impressions</span>
+
+                    <strong id="total-impressions">
+                        --
+                    </strong>
+
+                    <p>
+                        Total ad impressions
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- FOOTER -->
+
+        <footer class="footer">
+
+            <span>
+                MarketIQ · Marketing Campaign Analytics
+            </span>
+
+            <span>
+                Powered by Flask + SQLite + Chart.js
+            </span>
+
+        </footer>
+
+    </main>
+
+
+    <!-- ==========================================
+         CHART.JS
+    =========================================== -->
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Dashboard JavaScript -->
+    <script src="js/dashboard.js"></script>
+
+</body>
+
+</html>

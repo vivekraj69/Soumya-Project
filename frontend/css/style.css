@@ -1,0 +1,1564 @@
+/* =========================================================
+   MARKETIQ — MARKETING CAMPAIGN ANALYTICS SYSTEM
+   Global Stylesheet
+   ========================================================= */
+
+
+/* =========================================================
+   1. GLOBAL VARIABLES
+   ========================================================= */
+
+:root {
+    --bg-main: #f5f7fb;
+    --bg-card: #ffffff;
+
+    --sidebar: #111827;
+    --sidebar-light: #1f2937;
+
+    --text-primary: #111827;
+    --text-secondary: #6b7280;
+    --text-light: #9ca3af;
+
+    --border: #e5e7eb;
+
+    --accent: #6366f1;
+    --accent-dark: #4f46e5;
+
+    --success: #10b981;
+    --danger: #ef4444;
+    --warning: #f59e0b;
+
+    --shadow: 0 4px 20px rgba(15, 23, 42, 0.06);
+}
+
+
+/* =========================================================
+   2. RESET / BASE
+   ========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    background: var(--bg-main);
+    color: var(--text-primary);
+    min-height: 100vh;
+    line-height: 1.5;
+}
+
+button,
+input,
+select {
+    font-family: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+/* =========================================================
+   3. SIDEBAR
+   ========================================================= */
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 250px;
+    height: 100vh;
+
+    background: var(--sidebar);
+    color: #ffffff;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 26px 18px;
+
+    z-index: 1000;
+}
+
+
+/* =========================================================
+   4. BRAND
+   ========================================================= */
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 0 8px 28px;
+}
+
+.brand-icon {
+    width: 38px;
+    height: 38px;
+
+    border-radius: 10px;
+
+    background: linear-gradient(
+        135deg,
+        var(--accent),
+        var(--accent-dark)
+    );
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 17px;
+    font-weight: 800;
+
+    box-shadow: 0 6px 16px rgba(99, 102, 241, 0.3);
+}
+
+.brand-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.brand-name {
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+}
+
+.brand-subtitle {
+    font-size: 10px;
+    color: #9ca3af;
+    margin-top: 2px;
+}
+
+
+/* =========================================================
+   5. NAVIGATION
+   ========================================================= */
+
+.navigation {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 11px 13px;
+
+    border-radius: 9px;
+
+    color: #9ca3af;
+
+    font-size: 13px;
+    font-weight: 500;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease;
+}
+
+.nav-item:hover {
+    background: var(--sidebar-light);
+    color: #ffffff;
+}
+
+.nav-item.active {
+    background: rgba(99, 102, 241, 0.16);
+    color: #ffffff;
+}
+
+.nav-icon {
+    width: 19px;
+    height: 19px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 15px;
+}
+
+
+/* =========================================================
+   6. SIDEBAR FOOTER
+   ========================================================= */
+
+.sidebar-footer {
+    margin-top: auto;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+
+    padding: 18px 8px 4px;
+
+    color: #9ca3af;
+
+    font-size: 11px;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.status-dot {
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: var(--success);
+
+    box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.1);
+}
+
+
+/* =========================================================
+   7. MAIN CONTENT
+   ========================================================= */
+
+.main-content {
+    margin-left: 250px;
+
+    min-height: 100vh;
+
+    padding: 35px 40px;
+
+    width: calc(100% - 250px);
+}
+
+
+/* =========================================================
+   8. TOP BAR
+   ========================================================= */
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    margin-bottom: 30px;
+
+    gap: 20px;
+}
+
+.eyebrow {
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 1.4px;
+
+    color: var(--accent);
+
+    margin-bottom: 7px;
+}
+
+.topbar h1 {
+    font-size: 28px;
+    line-height: 1.2;
+
+    letter-spacing: -0.7px;
+
+    font-weight: 750;
+}
+
+.page-description {
+    margin-top: 7px;
+
+    font-size: 13px;
+
+    color: var(--text-secondary);
+}
+
+
+/* =========================================================
+   9. TOPBAR RIGHT
+   ========================================================= */
+
+.topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+
+    flex-shrink: 0;
+}
+
+.live-status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    font-size: 11px;
+    font-weight: 600;
+
+    color: var(--text-secondary);
+
+    white-space: nowrap;
+}
+
+.live-dot {
+    width: 7px;
+    height: 7px;
+
+    background: var(--success);
+
+    border-radius: 50%;
+
+    box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.1);
+}
+
+.date-display {
+    padding-left: 18px;
+
+    border-left: 1px solid var(--border);
+
+    color: var(--text-light);
+
+    font-size: 11px;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   10. KPI GRID
+   ========================================================= */
+
+.kpi-grid {
+    display: grid;
+
+    grid-template-columns: repeat(6, 1fr);
+
+    gap: 14px;
+
+    margin-bottom: 22px;
+}
+
+.kpi-card {
+    background: var(--bg-card);
+
+    border: 1px solid var(--border);
+
+    border-radius: 12px;
+
+    padding: 17px 17px 16px;
+
+    box-shadow: var(--shadow);
+
+    min-width: 0;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.kpi-card:hover {
+    transform: translateY(-2px);
+
+    box-shadow: 0 8px 25px rgba(15, 23, 42, 0.08);
+}
+
+.kpi-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 13px;
+}
+
+.kpi-icon {
+    width: 30px;
+    height: 30px;
+
+    border-radius: 8px;
+
+    background: #eef2ff;
+    color: var(--accent);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 13px;
+}
+
+.kpi-label {
+    font-size: 10px;
+
+    color: var(--text-secondary);
+
+    font-weight: 600;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.5px;
+}
+
+.kpi-value {
+    font-size: 20px;
+
+    font-weight: 750;
+
+    letter-spacing: -0.4px;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+/* =========================================================
+   11. FILTER PANEL
+   ========================================================= */
+
+.filter-panel {
+    background: var(--bg-card);
+
+    border: 1px solid var(--border);
+
+    border-radius: 12px;
+
+    padding: 18px 20px;
+
+    margin-bottom: 22px;
+
+    box-shadow: var(--shadow);
+}
+
+.filter-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 14px;
+}
+
+.filter-heading h3 {
+    font-size: 13px;
+
+    font-weight: 700;
+}
+
+.filter-heading span {
+    font-size: 10px;
+
+    color: var(--text-light);
+}
+
+.filter-grid {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 12px;
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.filter-group label {
+    font-size: 10px;
+
+    color: var(--text-secondary);
+
+    font-weight: 600;
+}
+
+.filter-group select,
+.filter-group input {
+    width: 100%;
+
+    height: 38px;
+
+    padding: 0 11px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 8px;
+
+    background: #ffffff;
+
+    color: var(--text-primary);
+
+    font-size: 12px;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.filter-group select:focus,
+.filter-group input:focus {
+    border-color: var(--accent);
+
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.filter-group input::placeholder {
+    color: #9ca3af;
+}
+
+
+/* =========================================================
+   12. BUTTONS
+   ========================================================= */
+
+.reset-button {
+    height: 38px;
+
+    padding: 0 15px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 8px;
+
+    background: #ffffff;
+
+    color: var(--text-secondary);
+
+    font-size: 11px;
+    font-weight: 600;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease;
+}
+
+.reset-button:hover {
+    background: #f9fafb;
+
+    border-color: #d1d5db;
+
+    color: var(--text-primary);
+}
+
+.primary-button {
+    height: 38px;
+
+    padding: 0 16px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: var(--accent);
+
+    color: #ffffff;
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    transition: background 0.2s ease;
+}
+
+.primary-button:hover {
+    background: var(--accent-dark);
+}
+
+
+/* =========================================================
+   13. CHART GRID
+   ========================================================= */
+
+.chart-grid {
+    display: grid;
+
+    grid-template-columns: 1.35fr 1fr;
+
+    gap: 18px;
+
+    margin-bottom: 22px;
+}
+
+.chart-card {
+    background: var(--bg-card);
+
+    border: 1px solid var(--border);
+
+    border-radius: 12px;
+
+    padding: 19px 20px;
+
+    box-shadow: var(--shadow);
+
+    min-width: 0;
+}
+
+.chart-card.large {
+    min-height: 340px;
+}
+
+.chart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    margin-bottom: 16px;
+}
+
+.chart-header h3 {
+    font-size: 13px;
+
+    font-weight: 700;
+
+    color: var(--text-primary);
+}
+
+.chart-header p {
+    margin-top: 3px;
+
+    color: var(--text-light);
+
+    font-size: 10px;
+}
+
+.chart-container {
+    position: relative;
+
+    width: 100%;
+
+    height: 260px;
+}
+
+.chart-card.large .chart-container {
+    height: 285px;
+}
+
+.chart-container canvas {
+    max-width: 100%;
+}
+
+
+/* =========================================================
+   14. SUMMARY GRID
+   ========================================================= */
+
+.summary-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 14px;
+
+    margin-bottom: 22px;
+}
+
+.summary-card {
+    background: var(--bg-card);
+
+    border: 1px solid var(--border);
+
+    border-radius: 12px;
+
+    padding: 17px 18px;
+
+    box-shadow: var(--shadow);
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+}
+
+.summary-icon {
+    width: 36px;
+    height: 36px;
+
+    flex-shrink: 0;
+
+    border-radius: 9px;
+
+    background: #eef2ff;
+
+    color: var(--accent);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 14px;
+}
+
+.summary-card h4 {
+    font-size: 10px;
+
+    color: var(--text-secondary);
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.4px;
+
+    margin-bottom: 3px;
+}
+
+.summary-card p {
+    font-size: 17px;
+
+    font-weight: 750;
+}
+
+
+/* =========================================================
+   15. CAMPAIGNS PAGE
+   ========================================================= */
+
+.campaign-toolbar {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 12px;
+
+    margin-bottom: 18px;
+}
+
+.campaign-search {
+    flex: 1;
+
+    max-width: 420px;
+
+    position: relative;
+}
+
+.campaign-search input {
+    width: 100%;
+
+    height: 40px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 9px;
+
+    padding: 0 13px;
+
+    background: #ffffff;
+
+    color: var(--text-primary);
+
+    outline: none;
+
+    font-size: 12px;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.campaign-search input:focus {
+    border-color: var(--accent);
+
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.campaign-search input::placeholder {
+    color: var(--text-light);
+}
+
+
+/* =========================================================
+   16. CAMPAIGN FILTERS
+   ========================================================= */
+
+.campaign-filter-panel {
+    background: var(--bg-card);
+
+    border: 1px solid var(--border);
+
+    border-radius: 12px;
+
+    padding: 18px 20px;
+
+    margin-bottom: 20px;
+
+    box-shadow: var(--shadow);
+}
+
+.campaign-filter-grid {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 12px;
+}
+
+.campaign-filter-group {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 6px;
+}
+
+.campaign-filter-group label {
+    font-size: 10px;
+
+    color: var(--text-secondary);
+
+    font-weight: 600;
+}
+
+.campaign-filter-group select {
+    width: 100%;
+
+    height: 38px;
+
+    padding: 0 11px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 8px;
+
+    background: #ffffff;
+
+    color: var(--text-primary);
+
+    font-size: 12px;
+
+    outline: none;
+}
+
+.campaign-filter-group select:focus {
+    border-color: var(--accent);
+
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+
+/* =========================================================
+   17. TABLE CARD
+   ========================================================= */
+
+.table-card {
+    background: var(--bg-card);
+
+    border: 1px solid var(--border);
+
+    border-radius: 12px;
+
+    box-shadow: var(--shadow);
+
+    overflow: hidden;
+
+    margin-bottom: 20px;
+}
+
+.table-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 18px 20px;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.table-header h3 {
+    font-size: 13px;
+
+    font-weight: 700;
+}
+
+.table-header p {
+    font-size: 10px;
+
+    color: var(--text-light);
+
+    margin-top: 2px;
+}
+
+.table-wrapper {
+    width: 100%;
+
+    overflow-x: auto;
+}
+
+.campaign-table {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    min-width: 950px;
+}
+
+.campaign-table thead {
+    background: #f9fafb;
+}
+
+.campaign-table th {
+    padding: 12px 14px;
+
+    text-align: left;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.4px;
+
+    color: var(--text-secondary);
+
+    border-bottom: 1px solid var(--border);
+
+    white-space: nowrap;
+}
+
+.campaign-table td {
+    padding: 13px 14px;
+
+    font-size: 11px;
+
+    color: var(--text-primary);
+
+    border-bottom: 1px solid #f0f1f3;
+
+    white-space: nowrap;
+}
+
+.campaign-table tbody tr {
+    transition: background 0.15s ease;
+}
+
+.campaign-table tbody tr:hover {
+    background: #fafbff;
+}
+
+.campaign-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+
+/* =========================================================
+   18. TABLE BADGES
+   ========================================================= */
+
+.badge {
+    display: inline-flex;
+
+    align-items: center;
+
+    padding: 4px 8px;
+
+    border-radius: 6px;
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    white-space: nowrap;
+}
+
+.badge-platform {
+    background: #eef2ff;
+
+    color: var(--accent-dark);
+}
+
+.badge-objective {
+    background: #f3f4f6;
+
+    color: #4b5563;
+}
+
+.badge-budget {
+    background: #ecfdf5;
+
+    color: #047857;
+}
+
+.profit-positive {
+    color: var(--success);
+
+    font-weight: 700;
+}
+
+.profit-negative {
+    color: var(--danger);
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   19. PAGINATION
+   ========================================================= */
+
+.pagination {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 15px 20px;
+
+    border-top: 1px solid var(--border);
+
+    background: #ffffff;
+}
+
+.pagination-text {
+    font-size: 10px;
+
+    color: var(--text-secondary);
+}
+
+.pagination-controls {
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+}
+
+.pagination-button {
+    height: 32px;
+
+    min-width: 32px;
+
+    padding: 0 10px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 7px;
+
+    background: #ffffff;
+
+    color: var(--text-secondary);
+
+    font-size: 10px;
+
+    font-weight: 600;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.pagination-button:hover:not(:disabled) {
+    background: #f5f7fb;
+
+    border-color: #d1d5db;
+
+    color: var(--text-primary);
+}
+
+.pagination-button:disabled {
+    opacity: 0.45;
+
+    cursor: not-allowed;
+}
+
+
+/* =========================================================
+   20. BUSINESS INSIGHTS
+   ========================================================= */
+
+.insights-grid {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 18px;
+
+    margin-bottom: 20px;
+}
+
+.insight-card {
+    background: var(--bg-card);
+
+    border: 1px solid var(--border);
+
+    border-radius: 12px;
+
+    padding: 20px;
+
+    box-shadow: var(--shadow);
+}
+
+.insight-card.full-width {
+    grid-column: 1 / -1;
+}
+
+.insight-header {
+    margin-bottom: 16px;
+}
+
+.insight-header h3 {
+    font-size: 13px;
+
+    font-weight: 700;
+}
+
+.insight-header p {
+    font-size: 10px;
+
+    color: var(--text-light);
+
+    margin-top: 3px;
+}
+
+.insight-chart-container {
+    position: relative;
+
+    width: 100%;
+
+    height: 280px;
+}
+
+
+/* =========================================================
+   21. INSIGHT LIST
+   ========================================================= */
+
+.insight-list {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+.insight-item {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 12px;
+
+    padding: 12px 13px;
+
+    background: #f9fafb;
+
+    border: 1px solid #f0f1f3;
+
+    border-radius: 9px;
+}
+
+.insight-item-left {
+    min-width: 0;
+}
+
+.insight-item-title {
+    font-size: 11px;
+
+    font-weight: 700;
+
+    color: var(--text-primary);
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+}
+
+.insight-item-subtitle {
+    font-size: 9px;
+
+    color: var(--text-light);
+
+    margin-top: 2px;
+}
+
+.insight-item-value {
+    font-size: 11px;
+
+    font-weight: 750;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   22. EMPTY / LOADING STATES
+   ========================================================= */
+
+.empty-state {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-height: 180px;
+
+    color: var(--text-light);
+
+    font-size: 12px;
+
+    text-align: center;
+}
+
+.loading-state {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-height: 180px;
+
+    color: var(--text-secondary);
+
+    font-size: 11px;
+}
+
+.error-state {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-height: 180px;
+
+    padding: 20px;
+
+    color: var(--danger);
+
+    font-size: 11px;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   23. FOOTER
+   ========================================================= */
+
+.footer {
+    padding: 20px 0 5px;
+
+    border-top: 1px solid var(--border);
+
+    color: var(--text-light);
+
+    font-size: 10px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 15px;
+}
+
+.footer-left {
+    display: flex;
+
+    align-items: center;
+
+    gap: 6px;
+}
+
+.footer-right {
+    text-align: right;
+}
+
+
+/* =========================================================
+   24. RESPONSIVE — LARGE LAPTOP
+   ========================================================= */
+
+@media (max-width: 1300px) {
+
+    .main-content {
+        padding: 30px;
+    }
+
+    .kpi-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .filter-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .campaign-filter-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+/* =========================================================
+   25. RESPONSIVE — TABLET
+   ========================================================= */
+
+@media (max-width: 1000px) {
+
+    .sidebar {
+        width: 210px;
+    }
+
+    .main-content {
+        margin-left: 210px;
+
+        width: calc(100% - 210px);
+
+        padding: 28px 24px;
+    }
+
+    .topbar h1 {
+        font-size: 25px;
+    }
+
+    .kpi-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .chart-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .summary-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .insights-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .insight-card.full-width {
+        grid-column: auto;
+    }
+
+    .topbar-right {
+        gap: 10px;
+    }
+
+    .date-display {
+        display: none;
+    }
+}
+
+
+/* =========================================================
+   26. RESPONSIVE — MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    .sidebar {
+        position: relative;
+
+        width: 100%;
+
+        height: auto;
+
+        padding: 14px 15px;
+
+        flex-direction: column;
+    }
+
+    .brand {
+        padding: 0 5px 14px;
+    }
+
+    .navigation {
+        flex-direction: row;
+
+        overflow-x: auto;
+
+        gap: 5px;
+
+        padding-bottom: 2px;
+    }
+
+    .nav-item {
+        flex-shrink: 0;
+
+        padding: 9px 11px;
+    }
+
+    .sidebar-footer {
+        display: none;
+    }
+
+    .main-content {
+        margin-left: 0;
+
+        width: 100%;
+
+        padding: 22px 15px;
+    }
+
+    .topbar {
+        flex-direction: column;
+
+        margin-bottom: 22px;
+    }
+
+    .topbar-right {
+        width: 100%;
+
+        justify-content: space-between;
+    }
+
+    .kpi-grid {
+        grid-template-columns: 1fr 1fr;
+
+        gap: 10px;
+    }
+
+    .kpi-card {
+        padding: 14px;
+    }
+
+    .kpi-value {
+        font-size: 17px;
+    }
+
+    .filter-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .campaign-filter-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .chart-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .summary-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .chart-card {
+        padding: 16px;
+    }
+
+    .chart-container {
+        height: 240px;
+    }
+
+    .chart-card.large .chart-container {
+        height: 250px;
+    }
+
+    .campaign-toolbar {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+    .campaign-search {
+        max-width: none;
+    }
+
+    .pagination {
+        flex-direction: column;
+
+        gap: 10px;
+
+        align-items: flex-start;
+    }
+
+    .footer {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    .footer-right {
+        text-align: left;
+    }
+}
+
+
+/* =========================================================
+   27. RESPONSIVE — SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 450px) {
+
+    .main-content {
+        padding: 18px 12px;
+    }
+
+    .topbar h1 {
+        font-size: 22px;
+    }
+
+    .page-description {
+        font-size: 11px;
+    }
+
+    .kpi-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .kpi-card {
+        padding: 15px;
+    }
+
+    .filter-panel {
+        padding: 15px;
+    }
+
+    .chart-card {
+        padding: 14px;
+    }
+
+    .chart-header h3 {
+        font-size: 12px;
+    }
+
+    .chart-container,
+    .chart-card.large .chart-container {
+        height: 220px;
+    }
+
+    .insight-card {
+        padding: 15px;
+    }
+
+    .insight-chart-container {
+        height: 230px;
+    }
+
+    .brand-name {
+        font-size: 16px;
+    }
+
+    .nav-item {
+        font-size: 11px;
+    }
+}
